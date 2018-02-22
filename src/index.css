@@ -1,5 +1,37 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  overflow-x: hidden;
+  font-family: -apple-system, ".SFNSText-Regular", "Avenir Next", "San Francisco", "Roboto", "Lato", sans-serif;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.11rem;
+  max-width: 1350px;
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    padding: 0 2.22rem;
+  }
+}
+
+@media only screen and (min-width: 1170px) {
+  .container {
+    padding: 0 3.33rem;
+    padding-bottom: 4em;
+  }
 }
