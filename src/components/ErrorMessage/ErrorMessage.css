@@ -1,0 +1,21 @@
+.error-container {
+  color: #fff;
+  margin: 2em auto;
+  max-width: 600px;
+  border-radius: 4px;
+  background: #e85454;
+}
+
+.error-info {
+  padding: 1em 10px;
+}
+
+.error-address-info {
+  padding-top: 10px;
+  border-top: 1px solid #a83d3d;
+}
+
+.error-address {
+  font-weight: 700;
+  color: #a83d3d;
+}
