@@ -9,3 +9,32 @@
   margin-bottom: 2em;
   text-align: center;
 }
+
+.app-content {
+  animation: fadein 1s;
+}
+
+.footer {
+  margin: 6em auto 4em;
+  text-align: center;
+}
+
+.footer-link {
+  color: #22295f;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #d17c78;
+  text-decoration: underline;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
