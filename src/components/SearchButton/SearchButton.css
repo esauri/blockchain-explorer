@@ -1,0 +1,21 @@
+.search-btn {
+  background: #d17c78;
+  color: #22295f;
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  font-size: 1em;
+  border: 0;
+}
+
+.search-btn:hover:not(:disabled) {
+  background: #de847f;
+}
+
+.search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.search-btn:focus {
+  outline: 0;
+}

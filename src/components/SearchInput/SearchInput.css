@@ -1,0 +1,30 @@
+.search-input {
+  /* Remove default input styles */
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.05em 0.1em;
+  color: #d17c78;
+  border-bottom: 2px solid;
+}
+
+.search-input:focus {
+  outline: 0;
+}
+
+.search-input:empty:not(:focus) {
+  border-color: #999;
+}
+
+@media only screen and (min-width: 600px) {
+  .search-input {
+    font-size: 2.2rem;
+  }
+}
