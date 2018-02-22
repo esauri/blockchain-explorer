@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import EmptyContainer from './containers/EmptyContainer/EmptyContainer';
+import SearchContainer from './containers/SearchContainer/SearchContainer';
 import apiKey from './utils/getApiKey';
 import './App.css';
 
@@ -14,6 +15,7 @@ class App extends Component {
       transactions: null,
     };
 
+    this.onChangeEvent = this.onChangeEvent.bind(this);
     this.onSearchAddress = this.onSearchAddress.bind(this);
     this.getEthereumAddress = this.getEthereumAddress.bind(this);
   }
@@ -60,6 +62,15 @@ class App extends Component {
   }
 
   /**
+   * Updates searchterm based on user input
+   *
+   * @param e
+   */
+  onChangeEvent(e) {
+    this.setState({ searchterm: e.target.value });
+  }
+
+  /**
    * Verifies that address is not empty and retrieves address information
    *
    * @param {string} searchterm
@@ -74,11 +85,18 @@ class App extends Component {
   }
 
   render() {
+    const { searchterm } = this.state;
+
     return (
       <main>
         {/* Header */}
         <header className={'app-header container'}>
           <h1 className={'app-title'}>Blockchain Explorer</h1>
+          <SearchContainer
+            searchterm={searchterm}
+            onChangeEvent={this.onChangeEvent}
+            onSearchAddress={this.onSearchAddress}
+          />
         </header>
         {/* Content */}
         <section className={'container'}>

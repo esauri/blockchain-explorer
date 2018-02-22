@@ -1,0 +1,8 @@
+.search-label {
+  color: #d17c78;
+  line-height: 1.5;
+}
+
+.search-label.disabled {
+  opacity: 0.5;
+}
