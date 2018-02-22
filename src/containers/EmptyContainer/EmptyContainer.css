@@ -1,0 +1,16 @@
+.Empty-Container {
+  padding: 1em;
+  margin: 2em auto;
+  border-radius: 4px;
+  text-align: center;
+  background: #ecf0f1;
+}
+
+.Address-List {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.Address-Item {
+  padding-top: 1em;
+}
