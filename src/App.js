@@ -30,17 +30,20 @@ class App extends Component {
   async getEthereumAddress(address) {
     try {
       const params = {
+        address,
+        module: 'account',
+        action: 'txlist',
         apiKey: apiKey,
         startblock: 0,
         endblock: 99999999,
+        sort: 'desc',
         page: 1,
         offset: 5,
       };
 
-      const url = `https://api.etherscan.io/api?module=account&action=txlist&address=${address}`;
+      const url = `https://api.etherscan.io/api`;
       const response = await axios.get(url, { params });
       const data = response.data;
-      console.log(data);
 
       // Update app state based on response
       this.setState({
@@ -130,9 +133,12 @@ class App extends Component {
           />
         </header>
         {/* Content */}
-        <section className={'container'}>
+        <section className={'app-content container'}>
           {this.renderContent()}
         </section>
+        <footer className={'footer'}>
+          <a className={'footer-link'} href={'https://ericksauri.com'} target={'_blank'}>Erick Sauri</a>
+        </footer>
       </main>
     );
   }
