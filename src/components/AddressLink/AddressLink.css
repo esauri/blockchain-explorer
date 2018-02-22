@@ -1,5 +1,6 @@
 .Address-Link {
   color: #22295f;
+  word-wrap: break-word;
 }
 
 .Address-Link:hover {

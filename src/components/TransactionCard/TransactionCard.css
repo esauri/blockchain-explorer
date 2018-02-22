@@ -1,0 +1,10 @@
+.transaction-container {
+  padding: 1em;
+  border-radius: 4px;
+  background: #f3f6fa;
+}
+
+.transaction-amount {
+  font-weight: 700;
+  word-wrap: break-word;
+}
