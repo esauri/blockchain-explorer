@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import EmptyContainer from './containers/EmptyContainer/EmptyContainer';
 import SearchContainer from './containers/SearchContainer/SearchContainer';
 import apiKey from './utils/getApiKey';
@@ -44,6 +45,15 @@ class App extends Component {
       this.setState({
         // Make the searched string the address
         address,
+        // If status is 0 then there was an error
+        errorMessage: (data.status === '0')
+          // Set error message based on result
+          ? data.result.length
+            // In this case error message is sent as result
+            ? data.result
+            // In this case error message is sent in message as result is an empty array (for no results found)
+            : data.message
+          : null,
         // If response status is 1 then we successfully found the address
         transactions: (data.status === '1')
           // Set transactions to result
@@ -84,6 +94,26 @@ class App extends Component {
     this.getEthereumAddress(searchterm);
   }
 
+  /**
+   * Returns content based on state of the app
+   *
+   */
+  renderContent() {
+    const { address, transactions, errorMessage } = this.state;
+
+    // If there is an error message
+    return (errorMessage)
+      // Return error message content
+      ? <ErrorMessage address={address} errorMessage={errorMessage} />
+      // Otherwise if we have address and transaction
+      : (address && transactions)
+        // Return address content
+        ? null
+        // Otherwise return empty state
+        : <EmptyContainer onSearchAddress={this.onSearchAddress} />;
+
+  }
+
   render() {
     const { searchterm } = this.state;
 
@@ -100,7 +130,7 @@ class App extends Component {
         </header>
         {/* Content */}
         <section className={'container'}>
-          <EmptyContainer onSearchAddress={this.onSearchAddress} />
+          {this.renderContent()}
         </section>
       </main>
     );
