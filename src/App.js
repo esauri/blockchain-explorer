@@ -3,6 +3,7 @@ import axios from 'axios';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import EmptyContainer from './containers/EmptyContainer/EmptyContainer';
 import SearchContainer from './containers/SearchContainer/SearchContainer';
+import AddressContainer from './containers/AddressContainer/AddressContainer';
 import apiKey from './utils/getApiKey';
 import './App.css';
 
@@ -108,7 +109,7 @@ class App extends Component {
       // Otherwise if we have address and transaction
       : (address && transactions)
         // Return address content
-        ? null
+        ? <AddressContainer address={address} transactions={transactions} onSearchAddress={this.onSearchAddress} />
         // Otherwise return empty state
         : <EmptyContainer onSearchAddress={this.onSearchAddress} />;
 
